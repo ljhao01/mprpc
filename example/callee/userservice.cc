@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include "../user.pb.h"
-
+#include "mprpcapplication.h"
+#include "rpcprovider.h"
 /*
 UserService原来是一个本地方法，提供两个进程内的本地方法Login和GetFriendLists
 */
@@ -39,3 +40,18 @@ public:
         done->Run(); 
     }
 };
+
+
+int main(int argc, char ** argv) {
+    // 调用框架初始化操作
+    MprpcApplication::Init(argc, argv);
+
+    // provider是一个rpc网络服务对象，把UserService对象发布到rpc节点上
+    RpcProvider provider;
+    provider.NotifyService(new UserService());
+
+    // 启动一个rpc服务节点 Run以后，进程进入阻塞状态，等待远程rpc调用请求
+    provider.Run();
+
+    return 0;
+}
