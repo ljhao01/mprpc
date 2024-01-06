@@ -8,7 +8,7 @@ UserService原来是一个本地方法，提供两个进程内的本地方法Log
 */
 
 // 使用在rpc发布端（rpc服务的提供者）
-class UserService : fixbug::UserServiceRpc {
+class UserService : public fixbug::UserServiceRpc {
 public:    
     bool Login(std::string name, std::string pwd) {
         std::cout << "doing local service : login" << std::endl;

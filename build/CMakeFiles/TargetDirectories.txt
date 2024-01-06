@@ -5,3 +5,6 @@
 /home/ljh/mprpc/build/src/CMakeFiles/rebuild_cache.dir
 /home/ljh/mprpc/build/example/CMakeFiles/edit_cache.dir
 /home/ljh/mprpc/build/example/CMakeFiles/rebuild_cache.dir
+/home/ljh/mprpc/build/example/callee/CMakeFiles/provider.dir
+/home/ljh/mprpc/build/example/callee/CMakeFiles/edit_cache.dir
+/home/ljh/mprpc/build/example/callee/CMakeFiles/rebuild_cache.dir

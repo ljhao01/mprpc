@@ -1,4 +1,4 @@
-# Install script for directory: /home/ljh/mprpc/example
+# Install script for directory: /home/ljh/mprpc/example/callee
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,11 +40,5 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/ljh/mprpc/build/example/callee/cmake_install.cmake")
-
 endif()
 

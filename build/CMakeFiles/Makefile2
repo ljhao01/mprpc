@@ -81,16 +81,31 @@ clean: example/clean
 # Directory level rules for directory example
 
 # Recursive "all" directory target.
-example/all:
+example/all: example/callee/all
 .PHONY : example/all
 
 # Recursive "preinstall" directory target.
-example/preinstall:
+example/preinstall: example/callee/preinstall
 .PHONY : example/preinstall
 
 # Recursive "clean" directory target.
-example/clean:
+example/clean: example/callee/clean
 .PHONY : example/clean
+
+#=============================================================================
+# Directory level rules for directory example/callee
+
+# Recursive "all" directory target.
+example/callee/all: example/callee/CMakeFiles/provider.dir/all
+.PHONY : example/callee/all
+
+# Recursive "preinstall" directory target.
+example/callee/preinstall:
+.PHONY : example/callee/preinstall
+
+# Recursive "clean" directory target.
+example/callee/clean: example/callee/CMakeFiles/provider.dir/clean
+.PHONY : example/callee/clean
 
 #=============================================================================
 # Directory level rules for directory src
@@ -132,6 +147,32 @@ mprpc: src/CMakeFiles/mprpc.dir/rule
 src/CMakeFiles/mprpc.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mprpc.dir/build.make src/CMakeFiles/mprpc.dir/clean
 .PHONY : src/CMakeFiles/mprpc.dir/clean
+
+#=============================================================================
+# Target rules for target example/callee/CMakeFiles/provider.dir
+
+# All Build rule for target.
+example/callee/CMakeFiles/provider.dir/all: src/CMakeFiles/mprpc.dir/all
+	$(MAKE) $(MAKESILENT) -f example/callee/CMakeFiles/provider.dir/build.make example/callee/CMakeFiles/provider.dir/depend
+	$(MAKE) $(MAKESILENT) -f example/callee/CMakeFiles/provider.dir/build.make example/callee/CMakeFiles/provider.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ljh/mprpc/build/CMakeFiles --progress-num=4,5,6 "Built target provider"
+.PHONY : example/callee/CMakeFiles/provider.dir/all
+
+# Build rule for subdir invocation for target.
+example/callee/CMakeFiles/provider.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljh/mprpc/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 example/callee/CMakeFiles/provider.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljh/mprpc/build/CMakeFiles 0
+.PHONY : example/callee/CMakeFiles/provider.dir/rule
+
+# Convenience name for target.
+provider: example/callee/CMakeFiles/provider.dir/rule
+.PHONY : provider
+
+# clean rule for target.
+example/callee/CMakeFiles/provider.dir/clean:
+	$(MAKE) $(MAKESILENT) -f example/callee/CMakeFiles/provider.dir/build.make example/callee/CMakeFiles/provider.dir/clean
+.PHONY : example/callee/CMakeFiles/provider.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
