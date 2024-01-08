@@ -6,6 +6,11 @@
 },
 {
   "directory": "/home/ljh/mprpc/build/src",
+  "command": "/usr/bin/g++ -Dmprpc_EXPORTS -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -fPIC -o CMakeFiles/mprpc.dir/mprpcconfig.cc.o -c /home/ljh/mprpc/src/mprpcconfig.cc",
+  "file": "/home/ljh/mprpc/src/mprpcconfig.cc"
+},
+{
+  "directory": "/home/ljh/mprpc/build/src",
   "command": "/usr/bin/g++ -Dmprpc_EXPORTS -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -fPIC -o CMakeFiles/mprpc.dir/rpcprovider.cc.o -c /home/ljh/mprpc/src/rpcprovider.cc",
   "file": "/home/ljh/mprpc/src/rpcprovider.cc"
 },

@@ -256,4 +256,5 @@ example/callee/CMakeFiles/provider.dir/userservice.cc.o: \
  /usr/include/c++/11/cassert \
  /usr/local/protobuf/include/google/protobuf/service.h \
  /home/ljh/mprpc/src/include/mprpcapplication.h \
+ /home/ljh/mprpc/src/include/mprpcconfig.h \
  /home/ljh/mprpc/src/include/rpcprovider.h

@@ -1,6 +1,8 @@
 #include "mprpcapplication.h"
 #include <iostream>
 #include <unistd.h>
+ 
+MprpcConfig MprpcApplication::config_;
 
 void ShowArgHelp() {
     std::cout << "format: command -i <configfile>" << std::endl;
@@ -21,11 +23,11 @@ void MprpcApplication::Init(int argc, char** argv) {
             config_file = optarg;
             break;
         case '?':
-            std::cout << "invalid args!" << std::endl;
+            // std::cout << "invalid args!" << std::endl;
             ShowArgHelp();
             exit(EXIT_FAILURE);
         case ':':
-            std::cout << "need <configfile> " << std::endl;
+            // std::cout << "need <configfile> " << std::endl;
             ShowArgHelp();
             exit(EXIT_FAILURE); 
         default:
@@ -33,9 +35,12 @@ void MprpcApplication::Init(int argc, char** argv) {
         }
     }
     // 开始加载配置文件
+    config_.LoadConfigFile(config_file.c_str());
 }
 
 MprpcApplication& MprpcApplication::GetInstance() {
     static MprpcApplication app;
     return app;
 }
+
+MprpcApplication::MprpcApplication() {}
