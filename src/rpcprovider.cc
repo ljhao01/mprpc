@@ -3,6 +3,10 @@
 #include <string>
 #include <functional>
 
+void RpcProvider::NotifyService(google::protobuf::Service *service) {
+    
+}
+
 void RpcProvider::Run() {
     std::string ip = MprpcApplication::GetInstance().GetMprpcConfig().Load("rpcserverip");
     uint16_t port = atoi(MprpcApplication::GetInstance().GetMprpcConfig().Load("rpcserverport").c_str());
@@ -18,6 +22,8 @@ void RpcProvider::Run() {
     // 设置muduo库的线程数量
     server.setThreadNum(4);
 
+    std::cout << "Rpc Provider start serivce at ip:" << ip << " port:" << port << std::endl;
+    
     server.start();
     eventLoop_.loop();
 }
