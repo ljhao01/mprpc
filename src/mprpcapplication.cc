@@ -36,6 +36,7 @@ void MprpcApplication::Init(int argc, char** argv) {
     }
     // 开始加载配置文件
     config_.LoadConfigFile(config_file.c_str());
+
 }
 
 MprpcApplication& MprpcApplication::GetInstance() {
@@ -44,3 +45,7 @@ MprpcApplication& MprpcApplication::GetInstance() {
 }
 
 MprpcApplication::MprpcApplication() {}
+
+MprpcConfig& MprpcApplication::GetMprpcConfig() {
+    return config_;
+}
