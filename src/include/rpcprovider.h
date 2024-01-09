@@ -29,10 +29,13 @@ private:
         std::unordered_map<std::string, const google::protobuf::MethodDescriptor*> methodMap_;      // 保存服务方法
     };
 
-    //存储注册成功的服务对象和服务方法的所有信息
+    // 存储注册成功的服务对象和服务方法的所有信息
     std::unordered_map<std::string, ServiceInfo> serviceMap_;
-
+    // 新的socket连接回调
     void OnConnection(const muduo::net::TcpConnectionPtr&);
-
+    // 已建立连接的读写事件回调
     void OnMessage(const muduo::net::TcpConnectionPtr&, muduo::net::Buffer*, muduo::Timestamp);
+    // Closure回调操作，用于序列化rpc的响应和网络发送
+    void SendRpcResponse(const muduo::net::TcpConnectionPtr&, google::protobuf::Message*);
+
 };

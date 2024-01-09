@@ -15,6 +15,11 @@
   "file": "/home/ljh/mprpc/src/rpcprovider.cc"
 },
 {
+  "directory": "/home/ljh/mprpc/build/src",
+  "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/mprpc.dir/rpcheader.pb.cc.o -c /home/ljh/mprpc/src/rpcheader.pb.cc",
+  "file": "/home/ljh/mprpc/src/rpcheader.pb.cc"
+},
+{
   "directory": "/home/ljh/mprpc/build/example/callee",
   "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/provider.dir/userservice.cc.o -c /home/ljh/mprpc/example/callee/userservice.cc",
   "file": "/home/ljh/mprpc/example/callee/userservice.cc"
