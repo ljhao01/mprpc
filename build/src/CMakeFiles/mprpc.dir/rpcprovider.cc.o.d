@@ -289,5 +289,16 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: \
  /usr/include/muduo/net/EventLoop.h /usr/include/c++/11/atomic \
  /usr/include/muduo/base/Mutex.h /usr/include/muduo/base/CurrentThread.h \
  /usr/include/muduo/net/TimerId.h \
+ /usr/local/protobuf/include/google/protobuf/descriptor.h \
+ /usr/local/protobuf/include/google/protobuf/stubs/logging.h \
+ /usr/local/protobuf/include/google/protobuf/stubs/status.h \
+ /usr/local/protobuf/include/google/protobuf/stubs/mutex.h \
+ /usr/include/c++/11/mutex /usr/include/c++/11/chrono \
+ /usr/include/c++/11/ratio /usr/include/c++/11/ctime \
+ /usr/include/c++/11/bits/parse_numbers.h \
+ /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/bits/unique_lock.h \
+ /usr/local/protobuf/include/google/protobuf/stubs/once.h \
+ /usr/local/protobuf/include/google/protobuf/port.h \
  /home/ljh/mprpc/src/include/mprpcapplication.h \
  /home/ljh/mprpc/src/include/mprpcconfig.h

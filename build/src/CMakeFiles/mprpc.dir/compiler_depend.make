@@ -752,9 +752,32 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
   /usr/include/muduo/base/Mutex.h \
   /usr/include/muduo/base/CurrentThread.h \
   /usr/include/muduo/net/TimerId.h \
+  /usr/local/protobuf/include/google/protobuf/descriptor.h \
+  /usr/local/protobuf/include/google/protobuf/stubs/logging.h \
+  /usr/local/protobuf/include/google/protobuf/stubs/status.h \
+  /usr/local/protobuf/include/google/protobuf/stubs/mutex.h \
+  /usr/include/c++/11/mutex \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/bits/unique_lock.h \
+  /usr/local/protobuf/include/google/protobuf/stubs/once.h \
+  /usr/local/protobuf/include/google/protobuf/port.h \
   ../src/include/mprpcapplication.h \
   ../src/include/mprpcconfig.h
 
+
+/usr/local/protobuf/include/google/protobuf/stubs/once.h:
+
+/usr/include/c++/11/bits/std_mutex.h:
+
+/usr/include/c++/11/ctime:
+
+/usr/local/protobuf/include/google/protobuf/stubs/mutex.h:
+
+/usr/local/protobuf/include/google/protobuf/stubs/logging.h:
 
 /usr/include/muduo/base/CurrentThread.h:
 
@@ -763,6 +786,8 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
 /usr/include/boost/type_traits/is_same.hpp:
 
 /usr/include/boost/utility/enable_if.hpp:
+
+/usr/include/c++/11/bits/parse_numbers.h:
 
 /usr/include/boost/type_traits/add_pointer.hpp:
 
@@ -836,6 +861,8 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
 
 /usr/include/boost/config/helper_macros.hpp:
 
+/usr/include/c++/11/mutex:
+
 /usr/include/boost/config/detail/posix_features.hpp:
 
 /usr/include/boost/config/platform/linux.hpp:
@@ -861,6 +888,8 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
 /usr/include/muduo/base/Types.h:
 
 /usr/include/muduo/base/Atomic.h:
+
+/usr/include/c++/11/ratio:
 
 /usr/include/muduo/net/TcpServer.h:
 
@@ -909,6 +938,8 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
 /usr/include/x86_64-linux-gnu/asm/socket.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/local/protobuf/include/google/protobuf/descriptor.h:
 
 /usr/include/c++/11/cctype:
 
@@ -968,6 +999,8 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
+/usr/local/protobuf/include/google/protobuf/stubs/status.h:
+
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
@@ -997,6 +1030,8 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
 /usr/include/boost/type_traits/remove_bounds.hpp:
 
 /usr/include/asm-generic/errno-base.h:
+
+/usr/local/protobuf/include/google/protobuf/port.h:
 
 /usr/include/boost/throw_exception.hpp:
 
@@ -1038,6 +1073,8 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
+/usr/include/c++/11/bits/unique_lock.h:
+
 /usr/include/c++/11/bits/uses_allocator.h:
 
 /usr/include/errno.h:
@@ -1075,6 +1112,8 @@ src/CMakeFiles/mprpc.dir/rpcprovider.cc.o: ../src/rpcprovider.cc \
 /usr/include/c++/11/bits/memoryfwd.h:
 
 /usr/include/c++/11/bits/stl_function.h:
+
+/usr/include/c++/11/chrono:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
