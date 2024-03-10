@@ -11,6 +11,11 @@
 },
 {
   "directory": "/home/ljh/mprpc/build/src",
+  "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/mprpc.dir/mprpcchannel.cc.o -c /home/ljh/mprpc/src/mprpcchannel.cc",
+  "file": "/home/ljh/mprpc/src/mprpcchannel.cc"
+},
+{
+  "directory": "/home/ljh/mprpc/build/src",
   "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/mprpc.dir/rpcprovider.cc.o -c /home/ljh/mprpc/src/rpcprovider.cc",
   "file": "/home/ljh/mprpc/src/rpcprovider.cc"
 },

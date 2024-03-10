@@ -2,18 +2,25 @@
 #include "mprpcapplication.h"
 #include "rpcheader.pb.h"
 
+/*
+service_name => service描述（用结构体表示）
+                        => service* 记录服务对象
+                           method_name => method方法对象
+*/
+
 void RpcProvider::NotifyService(google::protobuf::Service *service) {
     ServiceInfo service_info;
 
     // 获取服务对象的描述信息
-    auto pserviceDesc = service->GetDescriptor();
+    const google::protobuf::ServiceDescriptor* pserviceDesc = service->GetDescriptor();
     // 获取服务的名字
-    auto serivce_name = pserviceDesc->name();
+    std::string serivce_name = pserviceDesc->name();
     // 获取服务对象service的方法的数量
     int methodCnt = pserviceDesc->method_count();
 
     for(int i = 0; i < methodCnt; i++) {
-        auto pmethodDesc = pserviceDesc->method(i);
+        // 获取了服务对象指定下标的服务方法的描述（抽象描述）
+        const google::protobuf::MethodDescriptor* pmethodDesc = pserviceDesc->method(i);
         std::string method_name = pmethodDesc->name();
         service_info.methodMap_.insert({method_name, pmethodDesc});
     }
@@ -51,11 +58,10 @@ void RpcProvider::OnConnection(const muduo::net::TcpConnectionPtr &conn) {
 /*
 在框架内部，RpcProvider和RpcConsumer协商好通信用的protobuf格式
 service_name method_name args 定义proto的message类型，进行数据头的序列化和反序列化
-eg:UserServiceLoginzhang san123456
+eg:16UserServiceLoginzhang san123456
 
-header_size + head_str + args_str
+header_size(4个字节) + head_str + args_str
 */
-
 void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn, 
                             muduo::net::Buffer *buffer, 
                             muduo::Timestamp time) {
@@ -122,8 +128,8 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
     // 给下面的CallMethod方法的调用，绑定一个Closure的回调函数
     google::protobuf::Closure *done = google::protobuf::NewCallback<RpcProvider, 
                                                                     const muduo::net::TcpConnectionPtr&,
-                                                                    google::protobuf::Message*
-                                                                    >(this, &RpcProvider::SendRpcResponse, conn, response);
+                                                                    google::protobuf::Message*>
+                                                                    (this, &RpcProvider::SendRpcResponse, conn, response);
     service->CallMethod(method, nullptr, request, response, done);
 }
 
