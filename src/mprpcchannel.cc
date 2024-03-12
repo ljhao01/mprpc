@@ -38,16 +38,18 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     }
 
     std::string send_rpc_str;
-    send_rpc_str.insert(0, std::string((char*)&header_size, 4));
-    send_rpc_str += service_name;
-    send_rpc_str += method_name;
+    send_rpc_str.insert(0, std::string((char *)&header_size,4));
+    send_rpc_str += rpc_header_str;
+    send_rpc_str += args_str;
+
+    std::cout << send_rpc_str << std::endl; 
 
     std::cout << "===============================================================" << std::endl;
-    std::cout << "header_size" << header_size << std::endl;
-    std::cout << "rpc_header_str" << rpc_header_str << std::endl; 
-    std::cout << "service_name" << service_name << std::endl; 
-    std::cout << "method_name" << method_name << std::endl; 
-    std::cout << "args_size" << args_size << std::endl; 
+    std::cout << "header_size:" << header_size << std::endl;
+    std::cout << "rpc_header_str:" << rpc_header_str << std::endl; 
+    std::cout << "service_name:" << service_name << std::endl; 
+    std::cout << "method_name:" << method_name << std::endl; 
+    std::cout << "args_str:" << args_str << std::endl; 
     std::cout << "===============================================================" << std::endl;
 
     // tcp编程
@@ -57,8 +59,8 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
         close(clientfd);
         exit(EXIT_FAILURE);
     }
-    std::string ip = MprpcApplication::GetInstance().GetMprpcConfig().Load("rpcserviceip");
-    uint16_t port = atoi(MprpcApplication::GetInstance().GetMprpcConfig().Load("rpcserviceport").c_str());
+    std::string ip = MprpcApplication::GetInstance().GetMprpcConfig().Load("rpcserverip");
+    uint16_t port = atoi(MprpcApplication::GetInstance().GetMprpcConfig().Load("rpcserverport").c_str());
 
     struct sockaddr_in server_addr;
     server_addr.sin_family = AF_INET;
@@ -89,7 +91,7 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
 
     // 反序列化rpc调用的响应请求
     std::string response_str(recv_buf, 0, recv_size);
-    if(response->ParseFromString(response_str)) {
+    if(!response->ParsePartialFromArray(recv_buf, recv_size)) {
         std::cout << "parse error! response_str:" << response_str << std::endl;
         close(clientfd);
         return;

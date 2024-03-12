@@ -26,12 +26,22 @@
 },
 {
   "directory": "/home/ljh/mprpc/build/example/callee",
-  "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/provider.dir/userservice.cc.o -c /home/ljh/mprpc/example/callee/userservice.cc",
-  "file": "/home/ljh/mprpc/example/callee/userservice.cc"
+  "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/provider.dir/friendservice.cc.o -c /home/ljh/mprpc/example/callee/friendservice.cc",
+  "file": "/home/ljh/mprpc/example/callee/friendservice.cc"
 },
 {
   "directory": "/home/ljh/mprpc/build/example/callee",
-  "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/provider.dir/__/user.pb.cc.o -c /home/ljh/mprpc/example/user.pb.cc",
-  "file": "/home/ljh/mprpc/example/user.pb.cc"
+  "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/provider.dir/__/friend.pb.cc.o -c /home/ljh/mprpc/example/friend.pb.cc",
+  "file": "/home/ljh/mprpc/example/friend.pb.cc"
+},
+{
+  "directory": "/home/ljh/mprpc/build/example/caller",
+  "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/consumer.dir/callfriendservice.cc.o -c /home/ljh/mprpc/example/caller/callfriendservice.cc",
+  "file": "/home/ljh/mprpc/example/caller/callfriendservice.cc"
+},
+{
+  "directory": "/home/ljh/mprpc/build/example/caller",
+  "command": "/usr/bin/g++  -I/home/ljh/mprpc/src/include -I/home/ljh/mprpc/example -g -o CMakeFiles/consumer.dir/__/friend.pb.cc.o -c /home/ljh/mprpc/example/friend.pb.cc",
+  "file": "/home/ljh/mprpc/example/friend.pb.cc"
 }
 ]

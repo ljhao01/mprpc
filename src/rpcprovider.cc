@@ -67,13 +67,12 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
                             muduo::Timestamp time) {
     // 网络接受远程rpc调用请求的字符流
     std::string recv_buf = buffer->retrieveAllAsString();
-
+    std::cout << recv_buf << std::endl;
     // 从字符流中读取前4个字节调用请求的字符流
     uint32_t header_size = 0;
     recv_buf.copy((char*)&header_size, 4, 0);
-
     // 根据haed_size读取数据，反序列化数据，得到rpc请求的详细信息
-    std::string rpc_header_str =  recv_buf.substr(4, header_size);
+    std::string rpc_header_str = recv_buf.substr(4, header_size);
     mprpc::RpcHeader rpcHeader;
     std::string service_name, method_name;
     uint32_t args_size;
@@ -85,7 +84,7 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
         args_size = rpcHeader.args_size();
     } else {
         //反序列化失败
-        std::cout << "rpc_header_str" << rpc_header_str << " parse error" << std::endl;
+        std::cout << "rpc_header_str:" << rpc_header_str << " parse error" << std::endl;
         return;
     }
 
@@ -93,11 +92,11 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
     std::string args_str = recv_buf.substr(4 + header_size, args_size);
 
     std::cout << "===============================================================" << std::endl;
-    std::cout << "header_size" << header_size << std::endl;
-    std::cout << "rpc_header_str" << rpc_header_str << std::endl; 
-    std::cout << "service_name" << service_name << std::endl; 
-    std::cout << "method_name" << method_name << std::endl; 
-    std::cout << "args_size" << args_size << std::endl; 
+    std::cout << "header_size:" << header_size << std::endl;
+    std::cout << "rpc_header_str:" << rpc_header_str << std::endl; 
+    std::cout << "service_name:" << service_name << std::endl; 
+    std::cout << "method_name:" << method_name << std::endl; 
+    std::cout << "args_size:" << args_size << std::endl; 
     std::cout << "===============================================================" << std::endl;
 
 
