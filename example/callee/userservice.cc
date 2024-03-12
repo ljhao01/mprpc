@@ -16,6 +16,12 @@ public:
         return true;
     }
 
+    bool Register(uint32_t id, std::string name, std::string pwd) {
+        std::cout << "doing local service : Register" << std::endl;
+        std::cout << "id:" << id << "name:" << name << " pwd:" << pwd << std::endl; 
+        return true;
+    }
+
     // 重写基类UserServiceRpc的虚函数,下面的方法都是框架直接调用的
     // 1、caller ===>  Login(LoginRequest) ===> muduo ====>  callee
     // 2、callee ===>  Login(LoginRequest) ===> 交付到下面的重写的方法上
@@ -32,8 +38,8 @@ public:
 
         // 把响应写入response
         fixbug::ResultCode* code = response->mutable_result();
-        code->set_errcode(0);
-        code->set_errmsg("");
+        code->set_errcode(1);
+        code->set_errmsg("Login do error!");
         response->set_success(login_result);
 
         // 执行回调操作，执行响应对象数据的序列化和网络发送（都是由框架完成的）
