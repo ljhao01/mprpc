@@ -29,13 +29,17 @@ int main(int argc, char **argv) {
 
     // 演示调用远程发布的rpc方法Regsiter
     fixbug::RegisterRequest req;
-    req.set_id("1");
+    req.set_id(1);
     req.set_name("lisi");
     req.set_pwd("666666");
-    fixbug::RegisterRequest rsp;
+    fixbug::RegisterResponse rsp;
 
     sub.Register(nullptr, &req, &rsp, nullptr);
-
+    if(rsp.result().errcode() == 0) {
+        std::cout << "rpc login response success: " << rsp.success() << std::endl;
+    } else {
+        std::cout << "rpc login response error: " << rsp.result().errmsg() << std::endl;
+    }
 
     return 0;
 }

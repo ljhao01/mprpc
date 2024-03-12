@@ -45,6 +45,27 @@ public:
         // 执行回调操作，执行响应对象数据的序列化和网络发送（都是由框架完成的）
         done->Run(); 
     }
+
+    void Register(::google::protobuf::RpcController* controller,
+                       const ::fixbug::RegisterRequest* request,
+                       ::fixbug::RegisterResponse* response,
+                       ::google::protobuf::Closure* done) {
+        // 取数据
+        uint32_t id = request->id();
+        std::string name = request->name();
+        std::string pwd = request->pwd();
+
+        // 作本地业务
+        bool register_result = Register(id, name, pwd);
+
+        // 响应写入
+        response->mutable_result()->set_errcode(0);
+        response->mutable_result()->set_errmsg("");
+        response->set_success(register_result);
+
+        // 回调函数，作数据的序列化和发送
+        done->Run();
+    }
 };
 
 
